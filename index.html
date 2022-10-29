@@ -4,9 +4,56 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Code Tone Practice</title>
   </head>
+
   <body>
-    <h1>Code Tone Practice</h1>
+    <div id="app">
+      <transition name="fade">
+        <div v-show="show" class="number-grid">
+          <span v-for="number in numbers">{{number}}</span>
+        </div>
+      </transition>
+      <transition name="fade">
+        <button v-show="show" @click="reset" class="reset-button">
+          リセット
+        </button>
+      </transition>
+    </div>
   </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.11"></script>
+  <script>
+    const numberList = [3, 5, 7];
+    new Vue({
+      el: '#app',
+      mounted() {
+        this.shuffleNumbers();
+      },
+      data() {
+        return {
+          numbers: [],
+          show: true,
+        };
+      },
+      methods: {
+        reset() {
+          this.show = false;
+          setTimeout(() => {
+            this.shuffleNumbers();
+            this.show = true;
+          }, 500);
+        },
+        shuffleNumbers() {
+          const numbers = [];
+          for (let i = 0; i < 32; i++) {
+            const randomIndex = Math.floor(Math.random() * numberList.length);
+            numbers.push(numberList[randomIndex]);
+          }
+          this.numbers = numbers;
+        },
+      },
+    });
+  </script>
 </html>

@@ -1,0 +1,37 @@
+body,
+#app {
+  height: 100vh;
+}
+
+#app {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.number-grid {
+  height: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.reset-button {
+  display: block;
+  padding: 12px;
+  margin: 0 auto;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
