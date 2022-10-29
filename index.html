@@ -46,11 +46,10 @@
           }, 500);
         },
         shuffleNumbers() {
-          const numbers = [];
-          for (let i = 0; i < 32; i++) {
+          const numbers = [...Array(32)].map(() => {
             const randomIndex = Math.floor(Math.random() * numberList.length);
-            numbers.push(numberList[randomIndex]);
-          }
+            return numberList[randomIndex];
+          });
           this.numbers = numbers;
         },
       },
